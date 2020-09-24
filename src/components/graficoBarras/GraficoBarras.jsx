@@ -1,32 +1,58 @@
 import React, { Component } from 'react';
 import ReactEcharts from 'echarts-for-react';
+import dataTotalEcommerce from '../../dados/DadosTotal';
 
-class GraficoBarras extends Component{
-    render(){
-        return(
-            <ReactEcharts
-            option = {{
-                legend: {},
-                tooltip: {},
-                dataset: {
-                    source: [
-                        ['tipo', 'ecommerce', 'total'],
-                        ['2015', 43.3, 85.8],
-                        ['2016', 83.1, 73.4],
-                        ['2017', 86.4, 65.2],
-                        ['2018', 72.4, 53.9]
-                    ]
+class GraficoBarras extends Component {
+
+    getOption = () => {
+        let anos = [];
+        let total = [];
+        let ecommerce = [];
+
+        //Separa o Objeto de Dados em três Arrays
+        Object.entries(dataTotalEcommerce).forEach(entry => {
+            anos = [...anos, entry[0]];
+            entry[1].forEach(e => {
+                total = [...new Set([...total, e.total])]
+            });
+            entry[1].forEach(e => {
+                ecommerce = [...new Set([...ecommerce, e.ecommerce])]
+            });
+        });
+
+        //prepara os dados para o gráfico
+        let baseOption = {
+            legend: {},
+            tooltip: {},
+            xAxis: {
+                type: 'category',
+                data: anos
+            },
+            yAxis: {},
+            series: [
+                {
+                    type: 'bar',
+                    name: 'total',
+                    data: total
                 },
-                xAxis: {type: 'category'},
-                yAxis: {},
-                series: [
-                    {type: 'bar'},
-                    {type: 'bar'}
-                ]
-            }
-            
-            }
-            
+                {
+                    type: 'bar',
+                    name: 'e-commerce',
+                    data: ecommerce
+                }
+
+            ]
+        }
+
+        return {
+            baseOption
+        }
+    }
+
+    render() {
+        return (
+            <ReactEcharts
+                option={this.getOption()}
             />
         );
     }

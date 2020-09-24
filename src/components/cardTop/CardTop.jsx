@@ -6,8 +6,8 @@ class CardTop extends Component{
         return(
             <Card>
                 <Card.Body>
-                    <Card.Title>Vendas totais último ano</Card.Title>
-                    <Card.Text>433,692</Card.Text>
+                    <Card.Title>{this.props.titulo}</Card.Title>
+                    <Card.Text>{this.props.texto}</Card.Text>
                 </Card.Body>
             </Card>
         );
