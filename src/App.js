@@ -11,7 +11,7 @@ class App extends Component {
 
   render(){
     return (
-     <Container>
+     <Container className='my-3'>
        <h1>Ecommerce Dashboard</h1>
        <Deck/>
        <GraficoBarras/>

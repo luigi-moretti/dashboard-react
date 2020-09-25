@@ -13,7 +13,7 @@ class Deck extends Component{
         });
 
         qdtTotal = dataTotalEcommerce[anos.pop()].map(item => {
-            let total = item.total;
+            let total = (item.total).toLocaleString('pt-BR');
             return total;
         });
         
@@ -30,7 +30,7 @@ class Deck extends Component{
         });
 
         qtdEcommerce = dataTotalEcommerce[anos.pop()].map(item => {
-            let ecommerce = item.ecommerce;
+            let ecommerce = (item.ecommerce).toLocaleString('pt-BR');
             return ecommerce;
         });
 
@@ -47,14 +47,16 @@ class Deck extends Component{
 
     render(){
         return(
-            <CardDeck>
+            <CardDeck className='my-3'>
                 <CardTop
                     titulo = 'Vendas totais último ano'
-                    texto = {this.getQtdTotal()}
+                    subtitulo = 'Valor em milhões de dólares'
+                    texto = {'U$ ' + this.getQtdTotal()}
                 />
                 <CardTop
                     titulo = 'Vendas e-commerce último ano'
-                    texto = {this.getQtdEcommerce()}
+                    subtitulo = 'Valor em milhões de dólares'
+                    texto = {'U$ ' + this.getQtdEcommerce()}
                 />
                 <CardTop
                     titulo = 'Percentual e-commerce último ano'
