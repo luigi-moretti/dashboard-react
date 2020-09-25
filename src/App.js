@@ -12,7 +12,7 @@ class App extends Component {
   render(){
     return (
      <Container className='my-3'>
-       <h1>Ecommerce Dashboard</h1>
+       <h1>E-commerce Dashboard</h1>
        <Deck className='my-3' />
        <GraficoBarras className='my-3'/>
        <FormFiltro className='mt-3'/>
