@@ -6,22 +6,17 @@ class GraficoDetalhes extends Component {
 
 
     getOption() {
-        let anos = [];
         let etiqueta = [];
         let total = [];
-        let ano1 = this.props.ano;
-        console.log(ano1);
-
-        
-
-        //Separa o Objeto de Dados em três Arrays
+     
+        //Separa o Objeto de Dados em um array para as etiquetas
         Object.entries(dataEcommerce).forEach(entry => {
-            anos = [...anos, entry[0]];
             entry[1].forEach(e => {
                 etiqueta = [...new Set([...etiqueta, e.label])]
             });
         });
 
+        //Pega os dados do ano do Gráfico
         total = dataEcommerce[2000].map(item => {
             let obj = {
                 value: item.total,

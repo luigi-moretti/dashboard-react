@@ -4,12 +4,12 @@ import dataTotalEcommerce from '../../dados/DadosTotal';
 
 class GraficoBarras extends Component {
 
-    getOption = () => {
+    getOption(){
         let anos = [];
         let total = [];
         let ecommerce = [];
 
-        //Separa o Objeto de Dados em três Arrays
+        //Separa o Objeto de Dados em três Arrays => anos, total e ecommerce
         Object.entries(dataTotalEcommerce).forEach(entry => {
             anos = [...anos, entry[0]];
             entry[1].forEach(e => {

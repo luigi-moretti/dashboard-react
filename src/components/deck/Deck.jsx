@@ -4,7 +4,7 @@ import CardTop from '../cardTop';
 import dataTotalEcommerce from '../../dados/DadosTotal';
 
 class Deck extends Component{
-    getQtdTotal = () =>{
+    getQtdTotal(){
         let qdtTotal = [];
         let anos = [];
 
@@ -12,15 +12,15 @@ class Deck extends Component{
             anos = [...anos, entry[0]];
         });
 
-        qdtTotal = dataTotalEcommerce[anos.pop()].map(item => {
-            let total = (item.total).toLocaleString('pt-BR');
+        qdtTotal = dataTotalEcommerce[anos.pop()].map(item => {//pega último item 
+            let total = (item.total).toLocaleString('pt-BR'); //converte para moeda
             return total;
         });
         
         return qdtTotal;
     }
 
-    getQtdEcommerce = () =>{
+    getQtdEcommerce(){
         let qtdEcommerce = [];
         let anos = [];
 
@@ -29,18 +29,18 @@ class Deck extends Component{
             anos = [...anos, entry[0]];
         });
 
-        qtdEcommerce = dataTotalEcommerce[anos.pop()].map(item => {
-            let ecommerce = (item.ecommerce).toLocaleString('pt-BR');
+        qtdEcommerce = dataTotalEcommerce[anos.pop()].map(item => {//pega último item 
+            let ecommerce = (item.ecommerce).toLocaleString('pt-BR');//converte para moeda
             return ecommerce;
         });
 
         return qtdEcommerce;
     }
 
-    getPercentualEcommerce = () =>{
+    getPercentualEcommerce(){
         let qtdEcommerce = this.getQtdEcommerce();
         let getQtdTotal = this.getQtdTotal();
-        let percentual = Math.round((qtdEcommerce/getQtdTotal)*100);
+        let percentual = Math.round((qtdEcommerce/getQtdTotal)*100); //arrendonda percentual para nº inteiro mais próximo
 
         return percentual;
     }
