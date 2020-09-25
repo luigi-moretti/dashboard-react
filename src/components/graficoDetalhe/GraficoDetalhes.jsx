@@ -46,9 +46,6 @@ class GraficoDetalhes extends Component {
                 }
             },
             grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
                 containLabel: true
             },
             xAxis: {
@@ -77,7 +74,7 @@ class GraficoDetalhes extends Component {
         return (
             <ReactEcharts
                 option={this.getOption()}
-                style={{ height: "60vh", left: 50, top: 50}}            
+                style={{ height: "30rem", top: 50}}            
             />
         );
     }

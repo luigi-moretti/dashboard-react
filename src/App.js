@@ -13,10 +13,10 @@ class App extends Component {
     return (
      <Container className='my-3'>
        <h1>Ecommerce Dashboard</h1>
-       <Deck/>
-       <GraficoBarras/>
-       <FormFiltro/>
-       <GraficoDetalhes/>
+       <Deck className='my-3' />
+       <GraficoBarras className='my-3'/>
+       <FormFiltro className='mt-3'/>
+       <GraficoDetalhes className='my-3'/>
      </Container>
     );
   }

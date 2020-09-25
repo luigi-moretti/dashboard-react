@@ -22,7 +22,15 @@ class GraficoBarras extends Component {
 
         //prepara os dados para o gráfico
         let baseOption = {
-            legend: {},
+            title: {
+                text: 'Linha do tempo',
+                subtext: 'Em milhares de dólares'
+            },
+            legend: {
+                right:'center',
+                bottom:0,
+                orient:'horizontal',
+            },
             tooltip: {},
             xAxis: {
                 type: 'category',
@@ -32,12 +40,12 @@ class GraficoBarras extends Component {
             series: [
                 {
                     type: 'bar',
-                    name: 'total',
+                    name: 'Total',
                     data: total
                 },
                 {
                     type: 'bar',
-                    name: 'e-commerce',
+                    name: 'E-commerce',
                     data: ecommerce
                 }
 
