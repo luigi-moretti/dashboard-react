@@ -4,10 +4,15 @@ import dataEcommerce from '../../dados/Dados';
 
 class GraficoDetalhes extends Component {
 
-    getOption = () => {
+
+    getOption() {
         let anos = [];
         let etiqueta = [];
         let total = [];
+        let ano1 = this.props.ano;
+        console.log(ano1);
+
+        
 
         //Separa o Objeto de Dados em três Arrays
         Object.entries(dataEcommerce).forEach(entry => {
